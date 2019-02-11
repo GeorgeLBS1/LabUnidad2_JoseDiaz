@@ -11506,11 +11506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jorge\\Desktop\\Est_GIT\\Lab_2_JoseDiaz\\Lab_2_JoseDiaz\\Lab_2_JoseDiaz.csproj",
+      "projectUniqueName": "C:\\Users\\Jorge\\Desktop\\Est_GIT\\LabUnidad2_JoseDiaz\\Lab_2_JoseDiaz\\Lab_2_JoseDiaz.csproj",
       "projectName": "Lab_2_JoseDiaz",
-      "projectPath": "C:\\Users\\Jorge\\Desktop\\Est_GIT\\Lab_2_JoseDiaz\\Lab_2_JoseDiaz\\Lab_2_JoseDiaz.csproj",
+      "projectPath": "C:\\Users\\Jorge\\Desktop\\Est_GIT\\LabUnidad2_JoseDiaz\\Lab_2_JoseDiaz\\Lab_2_JoseDiaz.csproj",
       "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jorge\\Desktop\\Est_GIT\\Lab_2_JoseDiaz\\Lab_2_JoseDiaz\\obj\\",
+      "outputPath": "C:\\Users\\Jorge\\Desktop\\Est_GIT\\LabUnidad2_JoseDiaz\\Lab_2_JoseDiaz\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
