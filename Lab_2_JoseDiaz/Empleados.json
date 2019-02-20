@@ -1,0 +1,1 @@
+[{"Nombre":"Willy","Id":1,"Estado":true,"horas_trabajadas":0.0,"hora_deEntrada":"2017-09-08T10:01:55.714"},{"Nombre":"Jose","Id":2,"Estado":false,"horas_trabajadas":5.0,"hora_deEntrada":"2017-09-08T10:01:55.714"},{"Nombre":"Marina","Id":3,"Estado":false,"horas_trabajadas":40.0,"hora_deEntrada":"2017-09-08T10:01:55.714"}]

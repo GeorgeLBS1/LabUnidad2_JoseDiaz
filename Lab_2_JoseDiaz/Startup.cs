@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Lab_2_JoseDiaz.Models;
+using Lab_2_JoseDiaz.Controllers;
+using Lab_2_JoseDiaz.Repository;
+using Lab_2_JoseDiaz.Entities;
 
 namespace Lab_2_JoseDiaz
 {
@@ -29,8 +33,8 @@ namespace Lab_2_JoseDiaz
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-
+            //Captura los datos de los archivos de texto
+            services.AddSingleton<IEmpleadoRepository, EmpleadoFileRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
