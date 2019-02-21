@@ -17,14 +17,14 @@ namespace Lab_2_JoseDiaz.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Somos una empresa dedicada a la visita médica";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Por jj.diaz002@gmail.com";
 
             return View();
         }
