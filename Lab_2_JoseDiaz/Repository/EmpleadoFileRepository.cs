@@ -19,6 +19,7 @@ namespace Lab_2_JoseDiaz.Repository
             listaEmpleados = JsonConvert.DeserializeObject<List<EmpleadoViewModel>>(texto);
 
         }
+        
 
         public EmpleadoViewModel ObtenerEmpleado(int id)
         {
@@ -83,6 +84,42 @@ namespace Lab_2_JoseDiaz.Repository
             {
                 Console.WriteLine(e.ToString());
                 throw;
+            }
+        }
+
+        void IEmpleadoRepository.CalcularSalario()
+        {
+            string resetHora = "2019-02-08T07:00:55.714";
+            for (int i = 0; i < listaEmpleados.Count; i++)
+            {
+                
+                int final;
+                final = Math.Abs(listaEmpleados[i].hora_deEntrada.Hour - listaEmpleados[i].hora_deRegreso.Hour);
+                listaEmpleados[i].horas_trabajadas = final;
+                listaEmpleados[i].Sueldo = listaEmpleados[i].Sueldo + Math.Abs(listaEmpleados[i].horas_trabajadas * 38.0);
+                listaEmpleados[i].hora_deEntrada = Convert.ToDateTime(resetHora);
+            }
+        }
+
+        
+
+        void IEmpleadoRepository.SimularSalidas()
+        {
+            Random r = new Random();
+            double horas, minutos;
+            
+            for (int i = 0; i < listaEmpleados.Count; i++)
+            {
+                if (listaEmpleados[i].Estado == true)
+                {
+                    horas = Convert.ToDouble(r.Next(1, 4));
+                    horas = 1.5 * horas;
+                    minutos =  (Math.Abs(Convert.ToInt32(Math.Truncate(horas)) - horas))*60;
+
+                    TimeSpan s = new TimeSpan(Convert.ToInt32(horas), Convert.ToInt32(minutos), 0);
+                    listaEmpleados[i].hora_deRegreso = listaEmpleados[i].hora_deEntrada.Date + s;
+                    listaEmpleados[i].Estado = false;
+                }
             }
         }
     }

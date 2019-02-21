@@ -19,6 +19,8 @@ namespace Lab_2_JoseDiaz.Models
         [Required(ErrorMessage = "El numero de horas es requerido")]
         public double horas_trabajadas { get; set; }
         public DateTime hora_deEntrada { get; set; }
+        public DateTime hora_deRegreso { get; set; }
+        public double Sueldo { get; set; }
 
     }
 }

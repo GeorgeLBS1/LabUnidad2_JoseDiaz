@@ -20,21 +20,41 @@ namespace Lab_2_JoseDiaz.Controllers
         }
 
         // GET: Empleado con todo y busqueda implementada 
-        public ActionResult Index(string SearchString)
+        public ActionResult Index(string SearchString, string identi, string horas)
         {
-            if (string.IsNullOrEmpty(SearchString))
-            {
-                List<EmpleadoViewModel> listaEmpleados = empleadoRepository.ObtenerEmpleados();
-                return View(listaEmpleados);
-            }
-            else
-            {
-                List<EmpleadoViewModel> listaEmpleados = empleadoRepository.ObtenerEmpleados().FindAll(x => x.Nombre.Contains(SearchString) || x.Id == Convert.ToInt32(SearchString) || x.horas_trabajadas == Convert.ToDouble(SearchString));
-                ViewBag.SearchString = SearchString;
-                return View(listaEmpleados);
-            }
+
+                if (string.IsNullOrEmpty(SearchString) && string.IsNullOrEmpty(identi) && string.IsNullOrEmpty(horas)) 
+                {
+
+                    List<EmpleadoViewModel> listaEmpleados = empleadoRepository.ObtenerEmpleados();
+                    return View(listaEmpleados);
+                }
+                else
+                {
+                    List<EmpleadoViewModel> listaEmpleados = empleadoRepository.ObtenerEmpleados().FindAll(x => x.Nombre.Contains(SearchString) || x.Id == Convert.ToInt32(identi) || x.horas_trabajadas == Convert.ToDouble(horas));
+
+                    ViewBag.SearchString = SearchString;
+                    ViewBag.SearchHoras = horas;
+                    ViewBag.SearchID = identi;
+                    return View(listaEmpleados);
+
+                }
+                          
+
         }
         
+        public ActionResult Oficina()
+        {
+            List<EmpleadoViewModel> listaEmpleados = empleadoRepository.ObtenerEmpleados().FindAll(x => x.Estado == true);
+            return View(listaEmpleados);
+        }
+        public ActionResult OfiF()
+        {
+            List<EmpleadoViewModel> listaEmpleados = empleadoRepository.ObtenerEmpleados().FindAll(x => x.Estado == false);
+            var count = listaEmpleados.Count(x => x != null);
+            return View(listaEmpleados);
+        }
+
 
         // GET: Empleado/Details/5
         public ActionResult Details(int id)

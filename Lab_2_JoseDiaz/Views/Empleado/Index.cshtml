@@ -4,14 +4,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Listado de Empleados </h2>
 
 <p>
+    <p><a asp-area="" asp-controller="Empleado" asp-action="Oficina">Disponibles en la oficina</a></p>
+    <p><a asp-area="" asp-controller="Empleado" asp-action="OfiF">Fuera de la oficina</a></p>
     <form asp-controller="Empleado" asp-action="Index" method="get">
 <p>
-    Nombre/Apellido: <input type="text" name="SearchString" value="@ViewBag.SearchString" />
+    Buscar por: 
+     Nombre: <input type="text" name="SearchString" value="@ViewBag.SearchString" />
+    <input type="submit" value="Search" />
+     Horas Trabajadas: <input type="text" name="SearchHoras" value="@ViewBag.SearchHoras" />
+    <input type="submit" value="Search" />
+     Id: <input type="text" name="SearchID" value="@ViewBag.SearchID" />
     <input type="submit" value="Search" />
 </p>
+
     </form>
 <a asp-action="Create">Añadir Nuevo empleado</a>
 </p>

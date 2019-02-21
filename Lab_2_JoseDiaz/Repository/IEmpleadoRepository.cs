@@ -11,11 +11,14 @@ namespace Lab_2_JoseDiaz.Repository
 {
     public interface IEmpleadoRepository
     {
-        List<EmpleadoViewModel> ObtenerEmpleados();
-        EmpleadoViewModel ObtenerEmpleado(int id);
+        List<EmpleadoViewModel> ObtenerEmpleados();        
+        EmpleadoViewModel ObtenerEmpleado(int id);        
         void CrearEmpleado(EmpleadoViewModel nuevo);
         void ModificarEmpleado(EmpleadoViewModel nuevo);
         void QuitarEmpleado(int id);
+        void CalcularSalario();
+        void SimularSalidas();
+        
 
     }
 }
