@@ -35,6 +35,7 @@ namespace Lab_2_JoseDiaz
             });
             //Captura los datos de los archivos de texto
             services.AddSingleton<IEmpleadoRepository, EmpleadoFileRepository>();
+            services.AddSingleton<IArbolBinarioRepository, ArbolBinarioRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

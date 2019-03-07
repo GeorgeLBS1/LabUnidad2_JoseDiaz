@@ -71,7 +71,7 @@ using Lab_2_JoseDiaz.Models;
             WriteLiteral("\r\n<h2>Listado de Empleados </h2>\r\n\r\n<p>\r\n    <p>");
             EndContext();
             BeginContext(152, 91, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "813b22f0614c4ddcb087dbc3e95df7a3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "370c8ddf6acc40e49a4e2d39a3aa4f1f", async() => {
                 BeginContext(214, 25, true);
                 WriteLiteral("Disponibles en la oficina");
                 EndContext();
@@ -97,7 +97,7 @@ using Lab_2_JoseDiaz.Models;
             WriteLiteral("</p>\r\n    <p>");
             EndContext();
             BeginContext(256, 82, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "36503efece8b4f6fbecce7c0abb16caf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "badb9e68f7d24b52936d8b0830fe3469", async() => {
                 BeginContext(315, 19, true);
                 WriteLiteral("Fuera de la oficina");
                 EndContext();
@@ -123,7 +123,7 @@ using Lab_2_JoseDiaz.Models;
             WriteLiteral("</p>\r\n    ");
             EndContext();
             BeginContext(348, 494, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59d11ff2c1c64f8582d461a9799335ff", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92ba069198874a939078dd916dbeccd3", async() => {
                 BeginContext(412, 76, true);
                 WriteLiteral("\r\n<p>\r\n    Buscar por: \r\n     Nombre: <input type=\"text\" name=\"SearchString\"");
                 EndContext();
@@ -181,7 +181,7 @@ WriteAttributeValue("", 756, ViewBag.SearchID, 756, 17, false);
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(844, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e5bf9f1d96a4250912ea8944b1421b2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e73b4aa477704451ad95594214e4ddd3", async() => {
                 BeginContext(867, 21, true);
                 WriteLiteral("Añadir Nuevo empleado");
                 EndContext();
