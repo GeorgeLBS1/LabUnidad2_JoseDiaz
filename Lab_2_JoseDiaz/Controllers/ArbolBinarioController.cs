@@ -21,21 +21,23 @@ namespace Lab_2_JoseDiaz.Controllers
         // GET: ArbolBinario
         public ActionResult Index(string SearchString)
         {
+            List<FarmacoEntity> listafarmacos = new List<FarmacoEntity>();
             arbolBinarioRepository.LoadFile();
             if (string.IsNullOrEmpty(SearchString))
             {
-                List<FarmacoEntity> l = new List<FarmacoEntity>();
-                l.Add(new FarmacoEntity() {Precio = 0, Existencia = 0, Nombre = "", CasaProductora = "", Descripcion = ""});
-
-                return View(l);
+                listafarmacos.Clear();
+                
+                return View(listafarmacos);
             }
             else
             {
+                listafarmacos.Clear();
                 ViewBag.SearchString = SearchString;
-                List<FarmacoEntity> listafarmacos = arbolBinarioRepository.BuscarFarmacos(SearchString, 1, 5);
-                return View(listafarmacos);
+                listafarmacos = arbolBinarioRepository.BuscarFarmacos(SearchString, 1, 5);
+                return View(listafarmacos);               
                 
-            }            
+            }
+            
             
         }
 

@@ -60,40 +60,49 @@ namespace Lab_2_JoseDiaz.ArbolBinarioUtils
 
         
         public List<T> Buscar(string valor)
-        {
+        {            
             List<T> superior = new List<T>();
             InfoIndice nuevo = new InfoIndice();
-            List<T> infoIndices = new List<T>();
-            return recorrido_aux(valor, Raiz, superior);           
+            
+            Inorden(valor, Raiz, superior);
+            
+            return superior;           
 
             //TODO: recorer arbol y evaluar valor
 
         }
 
-        public List<T> recorrido_aux(string valor, Nodo<T> a, List<T> superior)
+
+        public void Inorden(string valor, Nodo<T> a, List<T> superior)
         {
-            
-            if (a.Llave.Contains(valor))
-            {                
-                superior.Add(a.Valor);
-                return superior;
-            }
-            else if (a.Llave.CompareTo(valor) == -1)
+            if (a != null)
             {
-                return recorrido_aux(valor, a.Izquierda, superior);
-            }
-            else if (a.Llave.CompareTo(valor) == +1)
-            {
-                return recorrido_aux(valor, a.Derecha, superior);
-            }
-            else 
-            {
-                return superior;
-            }
-            
-                
+                if (a.Llave.Contains(valor))
+                {
+                    
+                    superior.Add(a.Valor);
+                    //if (superior == null || superior.Count == 0)
+                    //{
+                    //    superior.Add(a.Valor);
+                    //}
+                    //else if (!superior.Exists(x => x.Equals(a.Valor)))
+                    //{
+                    //    superior.Add(a.Valor);
+                    //}
+                    //else if (superior.Any(x => x.Equals(a.Valor)))
+                    //{                      
+                    //    superior.Add(a.Valor);
+                    //}                    
+                    
+                }
+                Inorden(valor, a.Izquierda, superior);                
+                Inorden(valor, a.Derecha, superior);
+            }           
 
         }
+
+
+        
 
         //public List<T> lista(Nodo<T> arbol, T x, string valor )
         //{

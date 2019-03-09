@@ -43,7 +43,10 @@ namespace Lab_2_JoseDiaz.Repository
         public FarmacoEntity ObtenerFarmaco(int linea)
         {
             FarmacoEntity farmaco = new FarmacoEntity();
-            string line = File.ReadLines(path).Skip(linea).Take(1).First();
+            //string line = File.ReadLines(path).Skip(linea).Take(1).First();
+            string line = File.ReadAllLines(path)
+                    .Where(x => x.StartsWith(Convert.ToString(linea)))
+                    .FirstOrDefault();
             string[] valores = line.Split(",");
             farmaco.Nombre = valores[1];
             var cultura = new System.Globalization.CultureInfo("en-US");
@@ -60,7 +63,11 @@ namespace Lab_2_JoseDiaz.Repository
 
         public List<FarmacoEntity> BuscarFarmacos(string valor, int numeroDePagina, int noElementos)
         {
-            List<InfoIndice> listaIndices = arbolBinario.Buscar(valor).Skip(numeroDePagina -1 *noElementos).Take(noElementos).ToList();
+
+            List<InfoIndice> superior = arbolBinario.Buscar(valor);
+            List<InfoIndice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
+            List<InfoIndice> listaIndices = SinRepetidos.Skip(numeroDePagina - 1 * noElementos).Take(noElementos).ToList();            
+
             List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
 
             foreach (var item in listaIndices)
