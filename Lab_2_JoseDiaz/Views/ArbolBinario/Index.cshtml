@@ -64,3 +64,31 @@
         }
     </tbody>
 </table>
+
+<div class="container">
+    <div class="col-xs-4 col-sm-offset-4">
+        @if (ViewBag.PageNum > 1)
+        {
+            <a class="btn btn-default" href="@Url.Action("Index", new {SearchString = ViewBag.SearchString, page = ViewBag.PageNum - 1 })">Anterior</a>
+        }
+        @if (ViewBag.PageNum < ViewBag.total)
+        {
+            <a class="btn btn-default" href="@Url.Action("Index", new {SearchString = ViewBag.SearchString, page = ViewBag.PageNum + 1 })">Siguiente</a>
+        }
+
+
+
+        @*@for (int i = 1; i < 10; i++)
+        {
+            if (ViewBag.PageNum == i)
+            {
+
+                <a class="btn btn-default active" href="@Url.Action("Index", new {SearchString = ViewBag.SearchString, page = i })">@i</a>
+            }
+            else
+            {
+                <a class="btn btn-default" href="@Url.Action("Index", new {SearchString = ViewBag.SearchString, page = i })">@i</a>
+            }
+        }*@
+    </div>
+</div>

@@ -13,14 +13,17 @@ namespace Lab_2_JoseDiaz.Controllers
 {
     public class ArbolBinarioController : Controller
     {
+        public static int total;
         readonly IArbolBinarioRepository arbolBinarioRepository;
         public ArbolBinarioController(IArbolBinarioRepository arbolBinarioRepository)
         {
             this.arbolBinarioRepository = arbolBinarioRepository;
         }
         // GET: ArbolBinario
-        public ActionResult Index(string SearchString)
+        public ActionResult Index(string SearchString, int page = 1)
         {
+            ViewBag.PageNum = page;
+
             List<FarmacoEntity> listafarmacos = new List<FarmacoEntity>();
             arbolBinarioRepository.LoadFile();
             if (string.IsNullOrEmpty(SearchString))
@@ -33,7 +36,8 @@ namespace Lab_2_JoseDiaz.Controllers
             {
                 listafarmacos.Clear();
                 ViewBag.SearchString = SearchString;
-                listafarmacos = arbolBinarioRepository.BuscarFarmacos(SearchString, 1, 5);
+                listafarmacos = arbolBinarioRepository.BuscarFarmacos(SearchString, page, 5);
+                ViewBag.total = ((arbolBinarioRepository.Buscar(SearchString).Count)/5)+1;
                 return View(listafarmacos);               
                 
             }

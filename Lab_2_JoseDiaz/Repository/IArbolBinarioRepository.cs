@@ -13,6 +13,7 @@ namespace Lab_2_JoseDiaz.Repository
         void LoadFile();
         FarmacoEntity ObtenerFarmaco(int linea);
         List<FarmacoEntity> BuscarFarmacos(string valor, int numeroDePagina, int noElementos);
+        List<FarmacoEntity> Buscar(string valor);
 
     }
 }

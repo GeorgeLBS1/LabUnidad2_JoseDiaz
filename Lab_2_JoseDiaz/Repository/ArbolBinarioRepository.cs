@@ -27,10 +27,7 @@ namespace Lab_2_JoseDiaz.Repository
             {
                 string linea = lector.ReadLine();
                 string[] valores = linea.Split(",");
-                //numero de linea valores[0]
-                //llave nombre [1]
-                //cantidad[5]
-
+                
                 InfoIndice nuevoIndice = new InfoIndice();
                 nuevoIndice.Linea = Convert.ToInt32(valores[0]);
                 nuevoIndice.Nombre = valores[1];
@@ -66,11 +63,23 @@ namespace Lab_2_JoseDiaz.Repository
 
             List<InfoIndice> superior = arbolBinario.Buscar(valor);
             List<InfoIndice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
-            List<InfoIndice> listaIndices = SinRepetidos.Skip(numeroDePagina - 1 * noElementos).Take(noElementos).ToList();            
+            List<InfoIndice> listaIndices = SinRepetidos.Skip((numeroDePagina - 1) * noElementos).Take(noElementos).ToList();            
 
             List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
 
             foreach (var item in listaIndices)
+            {
+                farmacoEntities.Add(ObtenerFarmaco(item.Linea));
+            }
+            return farmacoEntities;
+        }
+        public List<FarmacoEntity> Buscar(string valor)
+        {
+            List<InfoIndice> superior = arbolBinario.Buscar(valor);
+            List<InfoIndice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
+            List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
+
+            foreach (var item in SinRepetidos)
             {
                 farmacoEntities.Add(ObtenerFarmaco(item.Linea));
             }
