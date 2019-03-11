@@ -63,7 +63,7 @@ using Lab_2_JoseDiaz.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(133, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "48a7a3c8384e4458a0fb0e59b0d5975c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "103a8e06fcad4aa8b0c92a14a228152e", async() => {
                 BeginContext(156, 10, true);
                 WriteLiteral("Create New");
                 EndContext();

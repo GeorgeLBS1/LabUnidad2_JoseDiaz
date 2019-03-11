@@ -41,3 +41,4 @@ C:\Users\Jorge\Desktop\Est_GIT\LabUnidad2_JoseDiaz\Lab_2_JoseDiaz\obj\Debug\netc
 C:\Users\Jorge\Desktop\Est_GIT\LabUnidad2_JoseDiaz\Lab_2_JoseDiaz\obj\Debug\netcoreapp2.1\Razor\Views\Simulacion\Index.g.cshtml.cs
 C:\Users\Jorge\Desktop\Est_GIT\LabUnidad2_JoseDiaz\Lab_2_JoseDiaz\obj\Debug\netcoreapp2.1\Razor\Views\ArbolBinario\Index.g.cshtml.cs
 C:\Users\Jorge\Desktop\Est_GIT\LabUnidad2_JoseDiaz\Lab_2_JoseDiaz\obj\Debug\netcoreapp2.1\Razor\Views\ArbolBinario\Details.g.cshtml.cs
+C:\Users\Jorge\Desktop\Est_GIT\LabUnidad2_JoseDiaz\Lab_2_JoseDiaz\obj\Debug\netcoreapp2.1\Razor\Views\ArbolBinario\Rellenar.g.cshtml.cs

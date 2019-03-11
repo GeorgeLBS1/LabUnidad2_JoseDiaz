@@ -17,6 +17,7 @@ namespace Lab_2_JoseDiaz.Controllers
         readonly IArbolBinarioRepository arbolBinarioRepository;
         public static List<CarritoEntity> carritoDeCompras = new List<CarritoEntity>();
         public static List<FarmacoEntity> s = new List<FarmacoEntity>();
+        public static List<FarmacoEntity> SinInventario = new List<FarmacoEntity>();
         public ArbolBinarioController(IArbolBinarioRepository arbolBinarioRepository)
         {
             this.arbolBinarioRepository = arbolBinarioRepository;
@@ -49,6 +50,20 @@ namespace Lab_2_JoseDiaz.Controllers
             }
             
             
+        }
+        public ActionResult Rellenar()
+        {
+            List<FarmacoEntity> rellenar = new List<FarmacoEntity>();
+            rellenar = arbolBinarioRepository.Recorrer(0);
+            return View(rellenar);
+        }
+
+        public ActionResult Actualizar()
+        {
+            List<FarmacoEntity> rellenar = new List<FarmacoEntity>();
+            rellenar = arbolBinarioRepository.Recorrer(0);
+            arbolBinarioRepository.Simulacion(rellenar);
+            return Redirect("Index");
         }
 
         // GET: ArbolBinario/Details/5

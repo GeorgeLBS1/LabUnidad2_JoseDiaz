@@ -127,6 +127,30 @@ namespace Lab_2_JoseDiaz.Repository
             }
             return farmacoEntities;
         }
+        public List<FarmacoEntity> Recorrer(int valor)
+        {
+            List<FarmacoEntity> losVacios = new List<FarmacoEntity>();
+            List<InfoIndice> superior = arbolBinario.BuscarPorCantidad();
+            List<InfoIndice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
+            List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
 
+            foreach (var item in SinRepetidos)
+            {                
+                farmacoEntities.Add(ObtenerFarmaco(item.Linea));
+            }
+            losVacios = farmacoEntities.FindAll(x => x.Existencia == valor).ToList();
+            return losVacios;
+        }
+
+        public void Simulacion(List<FarmacoEntity> a)
+        {
+            Random r = new Random();
+            for (int i = 0; i < a.Count; i++)
+            {
+                a[i].Existencia = r.Next(1, 15);
+                Modificar(a[i].Nombre, a[i].Existencia);
+            }
+            
+        }
     }
 }

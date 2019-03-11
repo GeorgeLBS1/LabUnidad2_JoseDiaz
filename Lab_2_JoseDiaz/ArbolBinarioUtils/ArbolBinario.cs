@@ -70,11 +70,31 @@ namespace Lab_2_JoseDiaz.ArbolBinarioUtils
             //TODO: recorer arbol y evaluar valor
 
         }
+        public List<T> BuscarPorCantidad()
+        {
+            List<T> superior = new List<T>();
+            InfoIndice nuevo = new InfoIndice();
+            absoluto("a", Raiz, superior);
+            return superior;
+        }
+        //Recorre todos los valores del arbol
+        public void absoluto(string valor, Nodo<T> a, List<T> superior)
+        {
+            if (a != null)
+            {
+                superior.Add(a.Valor);
+                absoluto(valor, a.Izquierda, superior);
+                absoluto(valor, a.Derecha, superior);
+            }
+        }
+
+        
 
         public void Inorden(string valor, Nodo<T> a, List<T> superior)
         {
             if (a != null)
             {
+                
                 if (a.Llave.Contains(valor))
                 {
                     
@@ -87,6 +107,7 @@ namespace Lab_2_JoseDiaz.ArbolBinarioUtils
             }           
 
         }
+
 
         public void EliminarNodo(Nodo<T> Raiz, string valor)
         {

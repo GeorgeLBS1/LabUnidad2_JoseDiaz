@@ -66,7 +66,7 @@ using Lab_2_JoseDiaz.Models;
             WriteLiteral("\r\n\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(133, 269, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbb8fd183bd3466180284b74226e0942", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9fc58d900d884c13bdb8102cfbffe475", async() => {
                 BeginContext(201, 70, true);
                 WriteLiteral("\r\n<p>\r\n    Nombre del producto: <input type=\"text\" name=\"SearchString\"");
                 EndContext();
