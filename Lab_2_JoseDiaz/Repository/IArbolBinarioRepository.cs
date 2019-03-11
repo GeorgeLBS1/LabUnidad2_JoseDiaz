@@ -17,6 +17,7 @@ namespace Lab_2_JoseDiaz.Repository
         List<FarmacoEntity> Buscar(string valor);
         void Modificar(string valor, int cantidad);
         void Simulacion(List<FarmacoEntity> a);
+        string Total_compra(List<CarritoEntity> carritoDeCompras);
         
     }
 }

@@ -158,7 +158,7 @@ using Lab_2_JoseDiaz.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n");
             EndContext();
             BeginContext(1049, 271, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29904a68584641aa81528ca78d9ae432", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "015a214155964fe396d1ec96f14e1dd8", async() => {
                 BeginContext(1119, 43, true);
                 WriteLiteral("\r\n    <input type=\"number\" name=\"SearchInt\"");
                 EndContext();
@@ -216,7 +216,7 @@ Write(Html.Raw(TempData["msg"]));
             WriteLiteral("\r\n\r\n<div>\r\n    \r\n    ");
             EndContext();
             BeginContext(1341, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c622d159a1d84914b20c9ce68e3295a1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bab95c62c3754957ba563601e5fd7232", async() => {
                 BeginContext(1393, 16, true);
                 WriteLiteral("Seguir comprando");
                 EndContext();

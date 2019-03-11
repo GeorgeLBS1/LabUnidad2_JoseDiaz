@@ -18,6 +18,7 @@ namespace Lab_2_JoseDiaz.Controllers
         public static List<CarritoEntity> carritoDeCompras = new List<CarritoEntity>();
         public static List<FarmacoEntity> s = new List<FarmacoEntity>();
         public static List<FarmacoEntity> SinInventario = new List<FarmacoEntity>();
+        public static ClienteViewModel persona = new ClienteViewModel();
         public ArbolBinarioController(IArbolBinarioRepository arbolBinarioRepository)
         {
             this.arbolBinarioRepository = arbolBinarioRepository;
@@ -66,6 +67,15 @@ namespace Lab_2_JoseDiaz.Controllers
             return Redirect("Index");
         }
 
+        public ActionResult Productos()
+        {            
+            string total;
+            total = arbolBinarioRepository.Total_compra(carritoDeCompras);
+            ViewBag.precioFinal = total;
+            persona.total = total;
+            return View(carritoDeCompras);
+        }
+
         // GET: ArbolBinario/Details/5
         public ActionResult Details(string id, int SearchInt)
         {
@@ -107,13 +117,30 @@ namespace Lab_2_JoseDiaz.Controllers
         // POST: ArbolBinario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create([FromForm]ClienteViewModel cliente)
         {
+            
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
 
-                return RedirectToAction(nameof(Index));
+                    // TODO: Add insert logic here
+                    persona.nombre = cliente.nombre;
+                    persona.nit = cliente.nit;
+                    persona.direccion = cliente.nit;
+                    cliente.total = persona.total;
+                    carritoDeCompras.Clear();
+                    
+                    cliente.total = "0";
+                    TempData["a"] = "<script>alert('Compra realizada con éxito');</script>";
+                    return Redirect("Productos");
+
+                }
+                else
+                {
+                    return Redirect("Index");
+                }
             }
             catch
             {

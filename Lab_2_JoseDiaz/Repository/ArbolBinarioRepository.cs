@@ -152,5 +152,16 @@ namespace Lab_2_JoseDiaz.Repository
             }
             
         }
+
+        public string Total_compra(List<CarritoEntity> carritoDeCompras)
+        {
+            double suma = 0;
+            for (int i = 0; i < carritoDeCompras.Count; i++)
+            {
+                suma += carritoDeCompras[i].total; 
+            }
+            suma = Math.Round(suma, 2);
+            return Convert.ToString(suma);
+        }
     }
 }

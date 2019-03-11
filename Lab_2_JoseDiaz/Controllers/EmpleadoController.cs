@@ -80,7 +80,7 @@ namespace Lab_2_JoseDiaz.Controllers
                 {
 
                     // TODO: Add insert logic here
-                    empleadoRepository.CrearEmpleado(empleado);
+                    
                     return RedirectToAction(nameof(Index));
                 }
                 else
