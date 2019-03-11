@@ -36,6 +36,48 @@ namespace Lab_2_JoseDiaz.Repository
             }
             lector.Close();
         }
+        public void Modificar(string valor, int cantidad)
+        {
+            
+                List<InfoIndice> superior = arbolBinario.Buscar(valor);
+                List<InfoIndice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
+                List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
+
+                foreach (var item in SinRepetidos)
+                {
+                    farmacoEntities.Add(ObtenerFarmaco(item.Linea));
+                }
+                int linea_a_editar = SinRepetidos.First().Linea;
+                string linea_a_escribir = null;
+                string concatenar = linea_a_editar + "," + farmacoEntities.First().Nombre + "," + farmacoEntities.First().Descripcion + "," + farmacoEntities.First().CasaProductora + ",$" + farmacoEntities.First().Precio + "," + cantidad;
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    for (int i = 1; i <= linea_a_editar; ++i)
+                        linea_a_escribir = reader.ReadLine();
+                }
+                string[] lines = File.ReadAllLines(path);
+                // Write the new file over the old file.
+                using (StreamWriter writer = new StreamWriter(path))
+                {
+                    for (int currentLine = 1; currentLine <= lines.Length; ++currentLine)
+                    {
+                        if (currentLine == linea_a_editar)
+                        {
+                            writer.WriteLine(concatenar);
+                        }
+                        else
+                        {
+                            writer.WriteLine(lines[currentLine - 1]);
+                        }
+                    }
+                }
+            if (cantidad == 0)
+            {
+                arbolBinario.Suprimir(valor);
+            }        
+                
+            
+        }
 
         public FarmacoEntity ObtenerFarmaco(int linea)
         {
@@ -85,5 +127,6 @@ namespace Lab_2_JoseDiaz.Repository
             }
             return farmacoEntities;
         }
+
     }
 }

@@ -4,35 +4,37 @@
     ViewData["Title"] = "Index";
 }
 
+
 <h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
     <form asp-controller="ArbolBinario" asp-action="Index" method="get">
 <p>
     Nombre del producto: <input type="text" name="SearchString" value="@ViewBag.SearchString" />
     <input type="submit" value="Search" />
+    Total de resultados: @ViewBag.ele
 </p>
 </form>
-    
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                Nombre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
+                Descripción
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CasaProductora)
+                Casa productora
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Precio)
+                Precio ($)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Existencia)
+                Existencia
             </th>
+
             <th></th>
         </tr>
     </thead>
@@ -40,6 +42,7 @@
         @foreach (var item in Model)
         {
             <tr>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)
                 </td>
@@ -56,10 +59,10 @@
                     @Html.DisplayFor(modelItem => item.Existencia)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Comprar", "Details", new { id = item.Nombre })
+
                 </td>
+
             </tr>
         }
     </tbody>
@@ -76,19 +79,6 @@
             <a class="btn btn-default" href="@Url.Action("Index", new {SearchString = ViewBag.SearchString, page = ViewBag.PageNum + 1 })">Siguiente</a>
         }
 
-
-
-        @*@for (int i = 1; i < 10; i++)
-        {
-            if (ViewBag.PageNum == i)
-            {
-
-                <a class="btn btn-default active" href="@Url.Action("Index", new {SearchString = ViewBag.SearchString, page = i })">@i</a>
-            }
-            else
-            {
-                <a class="btn btn-default" href="@Url.Action("Index", new {SearchString = ViewBag.SearchString, page = i })">@i</a>
-            }
-        }*@
     </div>
+    Total de páginas: @ViewBag.total
 </div>

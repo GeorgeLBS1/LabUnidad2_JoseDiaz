@@ -58,7 +58,6 @@ namespace Lab_2_JoseDiaz.ArbolBinarioUtils
             }
         }
 
-        
         public List<T> Buscar(string valor)
         {            
             List<T> superior = new List<T>();
@@ -72,7 +71,6 @@ namespace Lab_2_JoseDiaz.ArbolBinarioUtils
 
         }
 
-
         public void Inorden(string valor, Nodo<T> a, List<T> superior)
         {
             if (a != null)
@@ -81,18 +79,7 @@ namespace Lab_2_JoseDiaz.ArbolBinarioUtils
                 {
                     
                     superior.Add(a.Valor);
-                    //if (superior == null || superior.Count == 0)
-                    //{
-                    //    superior.Add(a.Valor);
-                    //}
-                    //else if (!superior.Exists(x => x.Equals(a.Valor)))
-                    //{
-                    //    superior.Add(a.Valor);
-                    //}
-                    //else if (superior.Any(x => x.Equals(a.Valor)))
-                    //{                      
-                    //    superior.Add(a.Valor);
-                    //}                    
+                                     
                     
                 }
                 Inorden(valor, a.Izquierda, superior);                
@@ -101,29 +88,69 @@ namespace Lab_2_JoseDiaz.ArbolBinarioUtils
 
         }
 
+        public void EliminarNodo(Nodo<T> Raiz, string valor)
+        {
+            
+            if (Raiz != null)
+            {
+                if (valor.CompareTo(Raiz.Llave) == -1)
+                {
+                    EliminarNodo(Raiz.Izquierda, valor);
+                }
+                else
+                {
+                    if (valor.CompareTo(Raiz.Llave) == 1)
+                    {
+                        EliminarNodo(Raiz.Izquierda, valor);
+                    }
+                    else
+                    {
+                        //Si lo Encontro
+                        Nodo<T> NodoEliminar = Raiz;
+                        if (NodoEliminar.Derecha == null)
+                        {
+                            Raiz = NodoEliminar.Izquierda;
+                        }
+                        else
+                        {
+                            if (NodoEliminar.Izquierda == null)
+                            {
+                                Raiz = NodoEliminar.Derecha;
+                            }
+                            else
+                            {
+                                Nodo<T> AuxiliarNodo = null;
+                                Nodo<T> Auxiliar = Raiz.Izquierda;
+                                bool Bandera = false;
+                                while (Auxiliar.Derecha != null)
+                                {
+                                    AuxiliarNodo = Auxiliar;
+                                    Auxiliar = Auxiliar.Derecha;
+                                    Bandera = true;
+                                }
+                                Raiz.Valor = Auxiliar.Valor;
+                                NodoEliminar = Auxiliar;
+                                if (Bandera == true)
+                                {
+                                    AuxiliarNodo.Derecha = Auxiliar.Izquierda;
+                                }
+                                else
+                                {
+                                    Raiz.Izquierda = Auxiliar.Izquierda;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        //Método para la eliminación generica (solo llamarlo para que sea generica)
+        public void Suprimir(string valor)
+        {
+            EliminarNodo(Raiz, valor);
+        }
 
-        
-
-        //public List<T> lista(Nodo<T> arbol, T x, string valor )
-        //{
-        //    List<T> asd = new List<T>();
-        //    if (arbol == null)
-        //    {
-        //        return asd;
-        //    }
-        //    else if (arbol.Llave.Contains(valor))
-        //    {
-        //        asd.Add(x);
-        //        return asd;
-        //    }
-        //    else if (arbol.Llave.CompareTo(valor) == -1)
-        //    {
-        //        return lista(arbol.Izquierda, x, valor);
-        //    }
-        //    else             
-        //    return lista(arbol.Derecha, x, valor);
-
-        //}
 
     }
 }

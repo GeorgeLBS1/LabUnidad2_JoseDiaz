@@ -15,17 +15,20 @@ namespace Lab_2_JoseDiaz.Controllers
     {
         public static int total;
         readonly IArbolBinarioRepository arbolBinarioRepository;
+        public static List<CarritoEntity> carritoDeCompras = new List<CarritoEntity>();
+        public static List<FarmacoEntity> s = new List<FarmacoEntity>();
         public ArbolBinarioController(IArbolBinarioRepository arbolBinarioRepository)
         {
             this.arbolBinarioRepository = arbolBinarioRepository;
-        }
-        // GET: ArbolBinario
+            arbolBinarioRepository.LoadFile();
+        }        
+        // GET: ArbolBinario Creación de la tabla principal
         public ActionResult Index(string SearchString, int page = 1)
         {
-            ViewBag.PageNum = page;
-
-            List<FarmacoEntity> listafarmacos = new List<FarmacoEntity>();
             arbolBinarioRepository.LoadFile();
+            ViewBag.PageNum = page;
+            List<FarmacoEntity> listafarmacos = new List<FarmacoEntity>();          
+            
             if (string.IsNullOrEmpty(SearchString))
             {
                 listafarmacos.Clear();
@@ -36,9 +39,12 @@ namespace Lab_2_JoseDiaz.Controllers
             {
                 listafarmacos.Clear();
                 ViewBag.SearchString = SearchString;
+                
                 listafarmacos = arbolBinarioRepository.BuscarFarmacos(SearchString, page, 5);
+                ViewBag.ele = arbolBinarioRepository.Buscar(SearchString).Count;
                 ViewBag.total = ((arbolBinarioRepository.Buscar(SearchString).Count)/5)+1;
-                return View(listafarmacos);               
+                s = listafarmacos;
+                return View(listafarmacos.FindAll(x => x.Existencia > 0));               
                 
             }
             
@@ -46,11 +52,37 @@ namespace Lab_2_JoseDiaz.Controllers
         }
 
         // GET: ArbolBinario/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id, int SearchInt)
         {
-            return View();
-        }
+            FarmacoEntity farmaco = s.Find(x => x.Nombre == id);
+            if (SearchInt == 0 || string.IsNullOrEmpty(Convert.ToString(SearchInt)))
+            {
+                
+                return View(farmaco);
+            }
+            else
+            {
+                CarritoEntity carrito = new CarritoEntity();                
+                ViewBag.SearchInt = SearchInt;
 
+                //Metodo para editar los valores del arbol y del archivo de texto va aquí
+                farmaco.Existencia -= SearchInt;
+                arbolBinarioRepository.Modificar(id, farmaco.Existencia);
+
+                carrito.Nombre = farmaco.Nombre;
+                carrito.Precio = farmaco.Precio;
+                carrito.Descripcion = farmaco.Descripcion;
+                carrito.CasaProductora = farmaco.CasaProductora;
+                carrito.cantidad = SearchInt;
+                carrito.total = carrito.Precio * carrito.cantidad;
+                carritoDeCompras.Add(carrito);
+                TempData["msg"] = "<script>alert('Añadido al carrito');</script>";
+                return View(farmaco);
+            }
+            
+            
+        }     
+        
         // GET: ArbolBinario/Create
         public ActionResult Create()
         {
