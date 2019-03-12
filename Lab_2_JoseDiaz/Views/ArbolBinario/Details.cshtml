@@ -43,7 +43,7 @@
     </dl>
 </div>
 <form asp-controller="ArbolBinario" asp-action="Details" method="get">
-    <input type="number" name="SearchInt" value="@ViewBag.SearchInt" min="0" max="@Model.Existencia" />
+    <input type="number" name="SearchInt" @*@*value="@ViewBag.SearchInt"*@*@ value="0" min="0" max="@Model.Existencia" />
     <input type="submit" value="Añadir al carrito" />
     @Html.Raw(TempData["msg"])
 </form>

@@ -63,7 +63,7 @@ using Lab_2_JoseDiaz.Models;
             WriteLiteral("\r\n<h2>Rellenar</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(137, 49, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e6d0aebb08884c5589a782ddc2487294", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f80e5f78f64e4cbc81f1aeda8cfd01e2", async() => {
                 BeginContext(164, 18, true);
                 WriteLiteral("Rellenar productos");
                 EndContext();

@@ -30,14 +30,15 @@
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
-                @Html.Raw(TempData["a"])
+                
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    
+
     <a asp-action="Index">Back to List</a>
+    @Html.Raw(TempData["a"])
 </div>
 

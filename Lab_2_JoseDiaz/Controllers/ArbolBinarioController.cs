@@ -19,6 +19,7 @@ namespace Lab_2_JoseDiaz.Controllers
         public static List<FarmacoEntity> s = new List<FarmacoEntity>();
         public static List<FarmacoEntity> SinInventario = new List<FarmacoEntity>();
         public static ClienteViewModel persona = new ClienteViewModel();
+        
         public ArbolBinarioController(IArbolBinarioRepository arbolBinarioRepository)
         {
             this.arbolBinarioRepository = arbolBinarioRepository;
@@ -27,7 +28,7 @@ namespace Lab_2_JoseDiaz.Controllers
         // GET: ArbolBinario Creación de la tabla principal
         public ActionResult Index(string SearchString, int page = 1)
         {
-            arbolBinarioRepository.LoadFile();
+            
             ViewBag.PageNum = page;
             List<FarmacoEntity> listafarmacos = new List<FarmacoEntity>();          
             
@@ -124,16 +125,17 @@ namespace Lab_2_JoseDiaz.Controllers
             {
                 if (ModelState.IsValid)
                 {
-
+                    Facturacion f = new Facturacion();
                     // TODO: Add insert logic here
                     persona.nombre = cliente.nombre;
                     persona.nit = cliente.nit;
                     persona.direccion = cliente.nit;
                     cliente.total = persona.total;
-                    carritoDeCompras.Clear();
-                    
-                    cliente.total = "0";
+                    f.CrearFactura(cliente, carritoDeCompras);
                     TempData["a"] = "<script>alert('Compra realizada con éxito');</script>";
+                    carritoDeCompras.Clear();                    
+                    cliente.total = "0";
+                    
                     return Redirect("Productos");
 
                 }

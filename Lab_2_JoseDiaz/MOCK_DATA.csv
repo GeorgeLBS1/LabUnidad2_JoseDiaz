@@ -1,6 +1,6 @@
-1,REMEDY Calazime Skin Protectant,Adverse effect of amphetamines subsequent encounter,Medline Industries Inc,$540.21,4
+1,REMEDY Calazime Skin Protectant,Adverse effect of amphetamines subsequent encounter,Medline Industries Inc,$540.21,1
 2,LOESTRIN Fe 120,Asymptomatic varicose veins of right lower extremity,Teva Womens Health Inc,$825.55,5
-3,Milk of Magnesia,Disp fx of lateral epicondyl of r humer 7thP,Walgreen Company,$937.66,6
+3,Milk of Magnesia,Disp fx of lateral epicondyl of r humer 7thP,Walgreen Company,$937.66,0
 4,Pollens  Weeds and Garden Plants Ragweed Giant Ambrosia trifida,Poisoning by succinimides and oxazolidinediones undet,Jubilant HollisterStier LLC,$812.10,8
 5,Colloidal Silver,Unspecified injury of lung bilateral initial encounter,Apotheca Company,$514.56,1
 6,Venlafaxine,Other superficial bite of unspecified back wall of thorax,Clinical Solutions Wholesale,$858.27,11
@@ -286,7 +286,7 @@
 286,Quinapril,Fracture of nasal bones subs encntr for fracture w nonunion,AvPAK,$239.80,13
 287,Good Neighbor Pharmacy,Toxic effect of cobra venom intentional selfharm sequela,AMERISOURCEBERGEN DRUG CORPORATION,$24.85,9
 288,Colosode,Athscl nonaut bio bypass of r leg w ulcer of heel and midft,Apotheca Company,$744.80,15
-289,ELF Milk and Honey Cleansing Antibacterial Hand,Frostbite with tissue necrosis of thorax sequela,Hangzhou Facecare Cosmetics Co Ltd,$142.34,2
+289,ELF Milk and Honey Cleansing Antibacterial Hand,Frostbite with tissue necrosis of thorax sequela,Hangzhou Facecare Cosmetics Co Ltd,$142.34,0
 290,Digoxin,Poisoning by antitussives undetermined subs encntr,Major Pharmaceuticals,$180.76,1
 291,Arterioforce,Other hypoparathyroidism,BioActive Nutritional Inc,$775.77,6
 292,Primatene Mist Refill,Burn of unsp deg mult fingers nail not including thumb,Armstrong Pharmaceuticals Inc,$48.31,9
@@ -538,7 +538,7 @@
 538,Nitrous Oxide,Neoplasm of uncertain behavior of the major salivary glands,Praxair Distribution Southeast LLC,$762.41,4
 539,Stoko Refresh,Disorder of the skin and subcutaneous tissue unspecified,Evonik Stockhausen LLC,$638.91,11
 540,Sodium Fluoride,Fall into oth water striking wall causing oth injury init,Shertech Laboratories LLC,$686.11,13
-541,7 Select Childrens Allergy Relief,Wrist drop unspecified wrist,7Eleven,$944.39,9
+541,7 Select Childrens Allergy Relief,Wrist drop unspecified wrist,7Eleven,$944.39,8
 542,Triple Antibiotic,Malignant neoplasm of ethmoidal sinus,New World Imports Inc,$48.44,1
 543,Sulwhasoo evenfair smoothing makeup base NO 1,Newborn aff by other morpholog and functn abnlt of placenta,AMOREPACIFIC,$922.18,14
 544,ACETAMINOPHEN DEXTROMETHORPHAN HYDROBROMIDE and DOXYLAMINE SUCCINATE,Sedative hypnotic or anxiolyticrelated use unspecified,SPIRIT PHARMACEUTICALS LLC,$292.02,7
@@ -576,7 +576,7 @@
 576,tizanidine,Terrorism involving oth means civilian injured subs encntr,Apotex Corp,$108.43,12
 577,Medline ReadyBath Luxe,Retrobulbar neuritis,Medline Industries Inc,$907.65,2
 578,Calcium Acetate,Asymptomatic varicose veins of left lower extremity,NCS HealthCare of KY Inc dba Vangard Labs,$518.81,2
-579,ADSOL Red Cell Preservation Solution System in Plastic Container PL 146 Plastic,Cortical agerelated cataract bilateral,Fenwal Inc,$486.63,5
+579,ADSOL Red Cell Preservation Solution System in Plastic Container PL 146 Plastic,Cortical agerelated cataract bilateral,Fenwal Inc,$486.63,2
 580,Esopinio Topaz Phyto,Nondisp midcervical fx l femur init for opn fx type 3ABC,ZION SYNTHETIC FIBER CO LTD,$829.22,13
 581,Russian Olive,Erosn implnt vaginal mesh to surrnd orgtiss subs,Nelco Laboratories Inc,$15.74,7
 582,RISPERIDONE,Burn due to fishing boat on fire sequela,Caraco Pharmaceutical Laboratories Ltd,$907.38,8
@@ -863,7 +863,7 @@
 863,Baby Butz,Nonprs chr ulcer of left heel and midft lmt to brkdwn skin,Olen Cosmetics Corporation,$788.76,1
 864,DepoTestosterone,Other superficial bite of right lesser toes sequela,Physicians Total Care Inc,$498.12,14
 865,Chewable Aspirin,Chronic periodontitis generalized severe,VALUE MERCHANDISERS COMPANY INC,$247.24,7
-866,Absolute Total BB SPF37 PA 3Plus,Intestinal obstruction due to inspissated milk,WIZCOZ CORPORATION LTD,$786.7,0
+866,Absolute Total BB SPF37 PA 3Plus,Intestinal obstruction due to inspissated milk,WIZCOZ CORPORATION LTD,$786.7,6
 867,DIBROMM,Torus fracture of lower end of unspecified ulna,Major Pharmaceuticals,$181.62,4
 868,FIRST BXN Mouthwash,Disorder of pancreatic internal secretion unspecified,CutisPharma Inc,$757.16,7
 869,Sweet Gum,Nondisp fx of shaft of third MC bone right hand sequela,Nelco Laboratories Inc,$339.75,4
