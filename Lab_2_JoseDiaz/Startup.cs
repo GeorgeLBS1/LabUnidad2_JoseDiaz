@@ -12,6 +12,7 @@ using Lab_2_JoseDiaz.Models;
 using Lab_2_JoseDiaz.Controllers;
 using Lab_2_JoseDiaz.Repository;
 using Lab_2_JoseDiaz.Entities;
+using Lab_2_JoseDiaz.ArbolValanceadoUtils;
 
 namespace Lab_2_JoseDiaz
 {
@@ -36,6 +37,7 @@ namespace Lab_2_JoseDiaz
             //Captura los datos de los archivos de texto
             services.AddSingleton<IEmpleadoRepository, EmpleadoFileRepository>();
             services.AddSingleton<IArbolBinarioRepository, ArbolBinarioRepository>();
+            services.AddSingleton<IAVLRepository, AVLRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

@@ -83,6 +83,7 @@ namespace Lab_2_JoseDiaz.ArbolBinarioUtils
             if (a != null)
             {
                 superior.Add(a.Valor);
+                
                 absoluto(valor, a.Izquierda, superior);
                 absoluto(valor, a.Derecha, superior);
             }

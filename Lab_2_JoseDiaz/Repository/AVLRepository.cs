@@ -4,81 +4,81 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Lab_2_JoseDiaz.ArbolBinarioUtils;
+using Lab_2_JoseDiaz.ArbolValanceadoUtils;
 using Lab_2_JoseDiaz.Entities;
+
 
 namespace Lab_2_JoseDiaz.Repository
 {
-    public class ArbolBinarioRepository : IArbolBinarioRepository
-    {
+    public class AVLRepository : IAVLRepository
+    {        
         string path = @"MOCK_DATA.csv";
-        ArbolBinario<InfoIndice> arbolBinario;
-
-        public ArbolBinarioRepository()
+        AVL<string, Indice> arbolValanceado;
+        public AVLRepository()
         {
-            arbolBinario = new ArbolBinario<InfoIndice>();
+            arbolValanceado = new AVL<string, Indice>();
         }
-
+        //leer el archivo de texto
         public void LoadFile()
         {
-            
+
             System.IO.StreamReader lector = new System.IO.StreamReader(path);
             while (!lector.EndOfStream)
             {
                 string linea = lector.ReadLine();
                 string[] valores = linea.Split(",");
-                
-                InfoIndice nuevoIndice = new InfoIndice();
+
+                Indice nuevoIndice = new Indice();
                 nuevoIndice.Linea = Convert.ToInt32(valores[0]);
                 nuevoIndice.Nombre = valores[1];
                 nuevoIndice.Existencia = Convert.ToInt32(valores[5]);
-                arbolBinario.Agregar(nuevoIndice, nuevoIndice.Nombre);
+                arbolValanceado.Add(nuevoIndice.Nombre, nuevoIndice);
             }
             lector.Close();
         }
         public void Modificar(string valor, int cantidad)
         {
+           
             
-                List<InfoIndice> superior = arbolBinario.Buscar(valor);
-                List<InfoIndice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
-                List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
+            List<Indice> superior = arbolValanceado.Buscar(valor);
+            List<Indice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
+            List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
 
-                foreach (var item in SinRepetidos)
+            foreach (var item in SinRepetidos)
+            {
+                farmacoEntities.Add(ObtenerFarmaco(item.Linea));
+            }
+            int linea_a_editar = SinRepetidos.First().Linea;
+            string linea_a_escribir = null;
+            string concatenar = linea_a_editar + "," + farmacoEntities.First().Nombre + "," + farmacoEntities.First().Descripcion + "," + farmacoEntities.First().CasaProductora + ",$" + farmacoEntities.First().Precio + "," + cantidad;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                for (int i = 1; i <= linea_a_editar; ++i)
+                    linea_a_escribir = reader.ReadLine();
+            }
+            string[] lines = File.ReadAllLines(path);
+            // Write the new file over the old file.
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                for (int currentLine = 1; currentLine <= lines.Length; ++currentLine)
                 {
-                    farmacoEntities.Add(ObtenerFarmaco(item.Linea));
-                }
-                int linea_a_editar = SinRepetidos.First().Linea;
-                string linea_a_escribir = null;
-                string concatenar = linea_a_editar + "," + farmacoEntities.First().Nombre + "," + farmacoEntities.First().Descripcion + "," + farmacoEntities.First().CasaProductora + ",$" + farmacoEntities.First().Precio + "," + cantidad;
-                using (StreamReader reader = new StreamReader(path))
-                {
-                    for (int i = 1; i <= linea_a_editar; ++i)
-                        linea_a_escribir = reader.ReadLine();
-                }
-                string[] lines = File.ReadAllLines(path);
-                // Write the new file over the old file.
-                using (StreamWriter writer = new StreamWriter(path))
-                {
-                    for (int currentLine = 1; currentLine <= lines.Length; ++currentLine)
+                    if (currentLine == linea_a_editar)
                     {
-                        if (currentLine == linea_a_editar)
-                        {
-                            writer.WriteLine(concatenar);
-                        }
-                        else
-                        {
-                            writer.WriteLine(lines[currentLine - 1]);
-                        }
+                        writer.WriteLine(concatenar);
+                    }
+                    else
+                    {
+                        writer.WriteLine(lines[currentLine - 1]);
                     }
                 }
+            }
             if (cantidad == 0)
             {
-                arbolBinario.Suprimir(valor);
-            }        
-                
-            
-        }
+                arbolValanceado.Eliminar(valor);
+            }
 
+
+        }
         public FarmacoEntity ObtenerFarmaco(int linea)
         {
             FarmacoEntity farmaco = new FarmacoEntity();
@@ -99,13 +99,12 @@ namespace Lab_2_JoseDiaz.Repository
             return farmaco;
 
         }
-
         public List<FarmacoEntity> BuscarFarmacos(string valor, int numeroDePagina, int noElementos)
         {
 
-            List<InfoIndice> superior = arbolBinario.Buscar(valor);
-            List<InfoIndice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
-            List<InfoIndice> listaIndices = SinRepetidos.Skip((numeroDePagina - 1) * noElementos).Take(noElementos).ToList();            
+            List<Indice> superior = arbolValanceado.Buscar(valor);
+            List<Indice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
+            List<Indice> listaIndices = SinRepetidos.Skip((numeroDePagina - 1) * noElementos).Take(noElementos).ToList();
 
             List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
 
@@ -117,8 +116,8 @@ namespace Lab_2_JoseDiaz.Repository
         }
         public List<FarmacoEntity> Buscar(string valor)
         {
-            List<InfoIndice> superior = arbolBinario.Buscar(valor);
-            List<InfoIndice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
+            List<Indice> superior = arbolValanceado.Buscar(valor);
+            List<Indice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
             List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
 
             foreach (var item in SinRepetidos)
@@ -130,12 +129,12 @@ namespace Lab_2_JoseDiaz.Repository
         public List<FarmacoEntity> Recorrer(int valor)
         {
             List<FarmacoEntity> losVacios = new List<FarmacoEntity>();
-            List<InfoIndice> superior = arbolBinario.BuscarPorCantidad();
-            List<InfoIndice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
+            List<Indice> superior = arbolValanceado.BuscarPorCantidad();
+            List<Indice> SinRepetidos = superior.GroupBy(x => x.Nombre).Select(y => y.First()).ToList();
             List<FarmacoEntity> farmacoEntities = new List<FarmacoEntity>();
 
             foreach (var item in SinRepetidos)
-            {                
+            {
                 farmacoEntities.Add(ObtenerFarmaco(item.Linea));
             }
             losVacios = farmacoEntities.FindAll(x => x.Existencia == valor).ToList();
@@ -149,15 +148,14 @@ namespace Lab_2_JoseDiaz.Repository
                 a[i].Existencia = r.Next(1, 15);
                 Modificar(a[i].Nombre, a[i].Existencia);
             }
-            
-        }
 
+        }
         public string Total_compra(List<CarritoEntity> carritoDeCompras)
         {
             double suma = 0;
             for (int i = 0; i < carritoDeCompras.Count; i++)
             {
-                suma += carritoDeCompras[i].total; 
+                suma += carritoDeCompras[i].total;
             }
             suma = Math.Round(suma, 2);
             return Convert.ToString(suma);
