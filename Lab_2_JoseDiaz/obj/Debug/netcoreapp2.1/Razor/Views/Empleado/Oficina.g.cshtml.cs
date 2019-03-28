@@ -63,7 +63,7 @@ using Lab_2_JoseDiaz.Models;
             WriteLiteral("\r\n<h2>Oficina</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(137, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eaf4beafc9964a8b847b2ddab3ea5231", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c7eff2b15d514e8d98789edba9a9e673", async() => {
                 BeginContext(160, 10, true);
                 WriteLiteral("Create New");
                 EndContext();

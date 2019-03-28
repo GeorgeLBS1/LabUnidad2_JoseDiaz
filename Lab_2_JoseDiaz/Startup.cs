@@ -38,6 +38,7 @@ namespace Lab_2_JoseDiaz
             services.AddSingleton<IEmpleadoRepository, EmpleadoFileRepository>();
             services.AddSingleton<IArbolBinarioRepository, ArbolBinarioRepository>();
             services.AddSingleton<IAVLRepository, AVLRepository>();
+            services.AddSingleton<IArbolBRepository, ArbolBRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

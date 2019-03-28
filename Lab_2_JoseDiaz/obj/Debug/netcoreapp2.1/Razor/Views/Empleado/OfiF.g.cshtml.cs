@@ -63,7 +63,7 @@ using Lab_2_JoseDiaz.Models;
             WriteLiteral("\r\n<h2>OfiF</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(131, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aaf5e858eb8e40c3bb720eac2f509f43", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b8fe97172964bd58d48bbc1c7ed9bbb", async() => {
                 BeginContext(154, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
